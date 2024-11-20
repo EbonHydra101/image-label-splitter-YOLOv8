@@ -63,9 +63,9 @@ project/
 ├── images/           # Output directory for split images
 │   ├── train/
 │   └── val/
-├── labels/           # Output directory for split labels
-│   ├── train/
-│   └── val/
+└── labels/           # Output directory for split labels
+    ├── train/
+    └── val/
 ```
 
 ---
