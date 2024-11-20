@@ -1,37 +1,88 @@
-# Image-Label-Splitter
 
-**Image-Label-Splitter** is a Python tool that helps you split a dataset of images and their corresponding labels into training and validation sets. It ensures that:
-- 70% of the images (and labels) are used for training.
-- 30% of the images (and labels) are used for validation.
-- If an image has no corresponding label, it is included in the training set without the label.
+# Data Splitter and Validator
 
-Additionally, the tool can validate that each image has a corresponding label in both the training and validation datasets.
+## Introduction
+This project provides two Python scripts to streamline the process of splitting image-label datasets into training and validation sets (`Split.py`) and validating the consistency of these datasets (`Validate.py`). These scripts are designed for projects involving machine learning or computer vision, where organized and verified datasets are essential.
+
+---
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Running the Split Script](#running-the-split-script)
+  - [Running the Validation Script](#running-the-validation-script)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Dependencies](#dependencies)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Usage
+
+### Running the Split Script
+1. **Prepare Your Data:**
+   - Place images in the `IMG/` directory.
+   - Place labels in the `LBL/` directory. Ensure label files have the same base name as their corresponding image files (e.g., `image1.jpg` and `image1.txt`).
+
+2. **Run the script:**
+   ```bash
+   python Split.py
+   ```
+
+3. **Result:**
+   - Images and labels are split into `images/train`, `images/val`, `labels/train`, and `labels/val`.
+
+### Running the Validation Script
+1. **Validate the Dataset:**
+   ```bash
+   python Validate.py
+   ```
+
+2. **Output:**
+   - Counts of matched and mismatched files for training and validation sets.
+   - List of mismatched files.
 
 ---
 
 ## Features
-
-- **Splits images and labels**: Automatically splits a folder of images (`IMG`) and a folder of labels (`LBL`) into separate `train` and `val` directories (70%/30% split).
-- **Handles unmatched images**: If an image doesn't have a corresponding label, it will still be included in the training set.
-- **Validation check**: Ensures that all images in `train` and `val` have matching label files, and outputs a report on mismatches.
+- **Dataset Splitting:** Organizes data into 70% training and 30% validation by default.
+- **Validation:** Checks for mismatched images and labels in training and validation sets.
+- **Error Reporting:** Outputs lists of mismatched files for debugging.
 
 ---
 
-## Getting Started
+## Project Structure
+```plaintext
+project/
+├── Split.py          # Script to split dataset
+├── Validate.py       # Script to validate dataset
+├── IMG/              # Directory for input images
+├── LBL/              # Directory for input labels
+├── images/           # Output directory for split images
+│   ├── train/
+│   └── val/
+├── labels/           # Output directory for split labels
+│   ├── train/
+│   └── val/
+└── requirements.txt  # List of dependencies
+```
 
-### Prerequisites
+---
 
-Before running the scripts, you need to have the following:
+## Dependencies
+- Python 3.7+
+- `scikit-learn`: For dataset splitting.
+- `shutil`: For file operations (built-in).
+- `os`: For directory management (built-in).
 
-- **Python** (version 3.x): Download and install Python from [python.org](https://www.python.org/downloads/).
-- **Required Python Libraries**: 
-    - `shutil` and `os` (built-in Python libraries, no need to install)
-    - `scikit-learn`: You can install it via pip:
-      ```bash
-      pip install scikit-learn
-      ```
+---
 
-### Directory Structure
+## Contributing
+Contributions are welcome! Feel free to open issues or submit pull requests.
 
-Ensure your dataset is structured like this:
+---
 
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
