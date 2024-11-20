@@ -66,7 +66,6 @@ project/
 ├── labels/           # Output directory for split labels
 │   ├── train/
 │   └── val/
-└── requirements.txt  # List of dependencies
 ```
 
 ---
